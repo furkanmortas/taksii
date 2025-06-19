@@ -720,42 +720,40 @@
         </a>
         <a href="#" id="whatsapp-btn" class="contact-btn whatsapp-btn">
             <i class="fab fa-whatsapp me-2"></i>
-            WhatsApp`tan Konum Gönder
-          </a>
-          
-          <script>
+            WhatsApp'tan Konum Gönder
+        </a>
+    
+        <script>
             document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
-              e.preventDefault();
-          
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                  function(position) {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-          
-                    const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                    const message = `Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Konumum: ${mapsLink} Lütfen araç gönderir misiniz?`;
-          
-                    const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(message);
-                    window.location(whatsappUrl, '_blank');
-                  },
-                  function(error) {
-                    // Konum alınamazsa bu mesaj gönderilir
+                e.preventDefault();
+    
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            const latitude = position.coords.latitude;
+                            const longitude = position.coords.longitude;
+    
+                            const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+                            const message = `Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Konumum: ${mapsLink} Lütfen araç gönderir misiniz?`;
+    
+                            const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(message);
+                            window.location.href = whatsappUrl;
+                        },
+                        function(error) {
+                            const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
+                            const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
+                            window.location.href = whatsappUrl;
+                        }
+                    );
+                } else {
                     const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
                     const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
-                    window.location(whatsappUrl, '_blank');
-                  }
-                );
-              } else {
-                // Tarayıcı konumu desteklemiyorsa da fallback mesajı gönder
-                const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
-                const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
-                window.location(whatsappUrl, '_blank');
-              }
-             
+                    window.location.href = whatsappUrl;
+                }
             });
-          </script>
-          
+        </script>
+    </div>
+    
           
     </div>
 
