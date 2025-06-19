@@ -701,10 +701,44 @@
             <i class="fas fa-phone me-2"></i>
             Ara: 0537 601 93 70
         </a>
-        <a href="https://wa.me/905376019370" class="contact-btn whatsapp-btn" target="_blank">
+        <a href="#" id="whatsapp-btn" class="contact-btn whatsapp-btn">
             <i class="fab fa-whatsapp me-2"></i>
-            WhatsApp Mesaj
-        </a>
+            WhatsApp`tan Konum Gönder
+          </a>
+          
+          <script>
+            document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+          
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                  function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+          
+                    const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+                    const message = `Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Konumum: ${mapsLink} Lütfen araç gönderir misiniz?`;
+          
+                    const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(message);
+                    window.open(whatsappUrl, '_blank');
+                  },
+                  function(error) {
+                    // Konum alınamazsa bu mesaj gönderilir
+                    const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
+                    const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
+                    window.open(whatsappUrl, '_blank');
+                  }
+                );
+              } else {
+                // Tarayıcı konumu desteklemiyorsa da fallback mesajı gönder
+                const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
+                const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
+                window.open(whatsappUrl, '_blank');
+              }
+            });
+          </script>
+          
+          
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
