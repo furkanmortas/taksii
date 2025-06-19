@@ -723,7 +723,7 @@
                     const message = `Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Konumum: ${mapsLink} Lütfen araç gönderir misiniz?`;
           
                     const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(message);
-                    window.open(whatsappUrl, '_blank');
+                    window.location(whatsappUrl, '_blank');
                   },
                   function(error) {
                     // Konum alınamazsa bu mesaj gönderilir
@@ -736,8 +736,9 @@
                 // Tarayıcı konumu desteklemiyorsa da fallback mesajı gönder
                 const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
                 const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
-                window.open(whatsappUrl, '_blank');
+                window.location(whatsappUrl, '_blank');
               }
+             
             });
           </script>
           
