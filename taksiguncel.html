@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayyıldız Taksi 7/24 - Güvenli ve Hızlı Ulaşım</title>
+    <meta name="description" content="Kayseri'de 7/24 taksi hizmeti. Güvenli, hızlı ve ekonomik ulaşım için bizi arayın. Havalimanı transferi, şehir içi ve şehir dışı ulaşım hizmetleri.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffc107;
+            --secondary-color: #212529;
+            --accent-color: #dc3545;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #495057 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffc107" fill-opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .taxi-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .contact-btn {
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .call-btn {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .services-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .features-section {
+            padding: 80px 0;
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .feature-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .taxi-gallery-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 400px;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-buttons {
+                bottom: 10px;
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            
+            .hero-section {
+                text-align: center;
+                padding: 20px 0;
+                min-height: 80vh;
+            }
+            
+            .taxi-icon {
+                font-size: 3rem;
+            }
+            
+            .swiper {
+                height: 300px;
+            }
+            
+            body {
+                padding-bottom: 120px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            body {
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">
+            <i class="fas fa-taxi text-warning me-2"></i>
+            Ayyıldız Taksi 7/24
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Fotoğraf Galerisi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Hizmetlerimiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">İletişim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#calculator">
+                        Ücret Hesaplayıcı
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+   <!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <!-- Logo image instead of icon -->
+                  
+                    <h1 class="display-4 fw-bold mb-4">AYYILDIZ TAKSİ</h1>
+                    <p class="lead mb-4">
+                        Güvenli, hızlı ve ekonomik ulaşım hizmetleri. 7 gün 24 saat hizmetinizdeyiz.
+                        Havalimanı transferi, şehir içi ve şehir dışı ulaşım için tek adres.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="tel:05376019370" class="btn btn-warning btn-lg">
+                            <i class="fas fa-phone me-2"></i>
+                            Hemen Ara
+                        </a>
+                        <a href="https://wa.me/905376019370" class="btn btn-success btn-lg" target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <img src="resim/logo.png" alt="Ayyıldız Taksi Logo" 
+                         style="width: 20rem; height: 20rem; border-radius: 80%; object-fit: cover; opacity: 0.8;">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+    <!-- Taxi Gallery Section -->
+<section id="gallery" class="taxi-gallery-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Taksi Filomuz</h2>
+                <p class="lead">Modern ve konforlu araçlarımızla hizmetinizdeyiz</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="resim/1.png" alt="Taksi Fotoğrafı 1" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="resim/2.png" alt="Taksi Fotoğrafı 2" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="resim/3.png" alt="Taksi Fotoğrafı 3" />
+                        </div>
+                    </div>
+                    <!-- Pagination and navigation buttons should be outside swiper-wrapper -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   <!-- Fare Calculator Section -->
+   <section id="calculator" class="py-5" style="background: linear-gradient(135deg, #ffc107 0%, #ffed4e 100%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="calculator-card bg-white rounded-4 shadow-lg p-5">
+                    <div class="text-center mb-4">
+                        <h2 class="display-6 fw-bold text-dark">
+                            <i class="fas fa-calculator text-warning me-3"></i>
+                            Taksi Ücreti Hesaplayıcı
+                        </h2>
+                        <p class="lead text-muted">Yolculuğunuzun maliyetini önceden hesaplayın</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="calculator-form">
+                                <div class="mb-4">
+                                    <label for="distance" class="form-label fw-bold">
+                                        <i class="fas fa-route text-primary me-2"></i>
+                                        Mesafe (KM)
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" 
+                                               class="form-control form-control-lg" 
+                                               id="distance" 
+                                               placeholder="Örn: 5" 
+                                               min="0" 
+                                               step="0.1">
+                                        <span class="input-group-text bg-primary text-white">KM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button class="btn btn-warning btn-lg fw-bold" onclick="calculateFare()">
+                                        <i class="fas fa-calculator me-2"></i>
+                                        Ücreti Hesapla
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="calculation-result">
+                                <div class="pricing-info bg-light rounded-3 p-4 mb-4">
+                                    <h5 class="fw-bold mb-3">
+                                        <i class="fas fa-info-circle text-info me-2"></i>
+                                        Fiyat Tarifesi
+                                    </h5>
+                                    <div class="pricing-item d-flex justify-content-between mb-2">
+                                        <span><i class="fas fa-flag text-success me-2"></i>Açılış Ücreti:</span>
+                                        <strong class="text-success">50 TL</strong>
+                                    </div>
+                                    <div class="pricing-item d-flex justify-content-between">
+                                        <span><i class="fas fa-road text-primary me-2"></i>KM Başına:</span>
+                                        <strong class="text-primary">50 TL</strong>
+                                    </div>
+                                </div>
+                                
+                                <div id="result-panel" class="result-panel bg-success text-white rounded-3 p-4 text-center" style="display: none;">
+                                    <h4 class="mb-3">
+                                        <i class="fas fa-money-bill-wave me-2"></i>
+                                        Tahmini Ücret
+                                    </h4>
+                                    <div class="fare-breakdown mb-3">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Açılış Ücreti:</span>
+                                            <span id="opening-fee">50 TL</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Mesafe Ücreti:</span>
+                                            <span id="distance-fee">0 TL</span>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <strong>Toplam:</strong>
+                                            <strong id="total-fare" class="fs-3">0 TL</strong>
+                                        </div>
+                                    </div>
+                                    <small class="opacity-75">
+                                        <i class="fas fa-exclamation-circle me-1"></i>
+                                        Bu hesaplama tahminidir. Gerçek ücret trafik ve bekleme süresine göre değişebilir.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="quick-actions text-center">
+                                <h5 class="mb-3">Hızlı İşlemler</h5>
+                                <div class="d-flex flex-wrap justify-content-center gap-2">
+                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(2)">2 KM</button>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(5)">5 KM</button>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(10)">10 KM</button>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(15)">15 KM</button>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(20)">20 KM</button>
+                                    <button class="btn btn-outline-danger btn-sm" onclick="clearCalculator()">Temizle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    const OPENING_FEE = 50; // TL
+    const PER_KM_FEE = 50;  // TL
+
+    function calculateFare() {
+        const distanceInput = document.getElementById("distance");
+        const distance = parseFloat(distanceInput.value);
+
+        if (isNaN(distance) || distance < 0) {
+            alert("Lütfen geçerli bir mesafe girin.");
+            return;
+        }
+
+        const distanceFee = distance * PER_KM_FEE;
+        const totalFare = OPENING_FEE + distanceFee;
+
+        document.getElementById("opening-fee").innerText = `${OPENING_FEE} TL`;
+        document.getElementById("distance-fee").innerText = `${distanceFee.toFixed(2)} TL`;
+        document.getElementById("total-fare").innerText = `${totalFare.toFixed(2)} TL`;
+
+        document.getElementById("result-panel").style.display = "block";
+    }
+
+    function setDistance(km) {
+        document.getElementById("distance").value = km;
+        calculateFare();
+    }
+
+    function clearCalculator() {
+        document.getElementById("distance").value = "";
+        document.getElementById("result-panel").style.display = "none";
+    }
+</script>
+
+
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Hizmetlerimiz</h2>
+                    <p class="lead">Kayseri'de her türlü ulaşım ihtiyacınız için buradayız</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h4>Havalimanı Transferi</h4>
+                        <p>Kayseri Havalimanı'na güvenli ve konforlu transfer hizmeti. Uçak saatlerinize uygun planlama.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h4>Şehir İçi Ulaşım</h4>
+                        <p>Kayseri şehir merkezi ve ilçelere hızlı ve güvenli ulaşım. 7/24 hizmet garantisi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h4>Şehir Dışı Seyahat</h4>
+                        <p>Türkiye'nin her yerine güvenli seyahat. Uzun mesafe konforlu yolculuk deneyimi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>7/24 Hizmet</h4>
+                        <p>Gece gündüz demeden her saatte hizmetinizdeyiz. Acil durumlar için anında ulaşım.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Sürüş</h4>
+                        <p>Deneyimli şoförlerimiz ve bakımlı araçlarımızla güvenli yolculuk garantisi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h4>Uygun Fiyat</h4>
+                        <p>Kaliteli hizmeti en uygun fiyatlarla sunuyoruz. Şeffaf fiyatlandırma politikası.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Hakkımızda</h2>
+                    <p class="lead">Ayyıldız Taksi 7/24 olarak, şehrimizde yıllardır güvenilir ulaşım hizmeti sunuyoruz. Müşteri memnuniyetini ön planda tutarak, modern araç filomuz ve deneyimli şoför kadromuzla hizmet veriyoruz.</p>
+                    <p>Teknolojinin sunduğu imkanları kullanarak, rezervasyon sistemimiz ve anlık konum takibi ile müşterilerimize en iyi hizmeti sunmaya devam ediyoruz. Güvenli, hızlı ve ekonomik ulaşım çözümleri için tercih edilen adres olmaktan gurur duyuyoruz.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <h3 class="text-warning">1000+</h3>
+                                <p>Mutlu Müşteri</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <h3 class="text-warning">5+</h3>
+                                <p>Yıllık Deneyim</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="fas fa-users" style="font-size: 12rem; color: var(--primary-color); opacity: 0.8;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Neden Bizi Tercih Etmelisiniz?</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5>Kolay Rezervasyon</h5>
+                        <p>Telefon veya WhatsApp ile hızlı rezervasyon</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h5>GPS Takip</h5>
+                        <p>Anlık konum takibi ve en kısa rota</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h5>Esnek Ödeme</h5>
+                        <p>Nakit veya kart ile ödeme seçenekleri</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5>7/24 Destek</h5>
+                        <p>Her zaman ulaşabileceğiniz müşteri hizmetleri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Konumumuz</h2>
+                    <p class="lead">221 No'lu Taksi Durağı - Mayagöz Karşısı</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <div class="map-container" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.5!2d35.4894!3d38.7312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a1a1a1a1a1a1a%3A0x1a1a1a1a1a1a1a1a!2sTalas%20Blv.%2C%20Melikgazi%2FKayseri!5e0!3m2!1str!2str!4v1640995200000!5m2!1str!2str"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="location-info bg-white p-4 rounded-3 shadow-sm h-100">
+                        <h4 class="mb-3"><i class="fas fa-map-marker-alt text-warning me-2"></i>Adres Bilgileri</h4>
+                        <div class="mb-3">
+                            <strong>221 No'lu Taksi Durağı</strong><br>
+                            Mayagöz Karşısı<br>
+                            Talas Bulvarı<br>
+                            38280 Melikgazi/Kayseri<br>
+                            Türkiye
+                        </div>
+                        <hr>
+                        <div class="contact-info">
+                            <p class="mb-2"><i class="fas fa-phone text-danger me-2"></i> <strong>0537 601 93 70</strong></p>
+                            <p class="mb-2"><i class="fab fa-whatsapp text-success me-2"></i> <strong>0537 601 93 70</strong></p>
+                            <p class="mb-3"><i class="fas fa-clock text-info me-2"></i> <strong>7/24 Hizmet</strong></p>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="https://www.google.com/maps/search/Talas+Bulvar%C4%B1+Melikgazi+Kayseri" 
+                               target="_blank" 
+                               class="btn btn-outline-primary">
+                                <i class="fas fa-directions me-2"></i>Yol Tarifi Al
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4><i class="fas fa-taxi text-warning me-2"></i>Ayyıldız Taksi 7/24</h4>
+                    <p>Güvenli, hızlı ve ekonomik ulaşım hizmetleri. 7 gün 24 saat hizmetinizdeyiz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>İletişim</h5>
+                    <p><i class="fas fa-phone me-2"></i> 0537 601 93 70</p>
+                    <p><i class="fab fa-whatsapp me-2"></i> WhatsApp: 0537 601 93 70</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@ayyildiztaksi.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Adres</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 221 No'lu Taksi Durağı<br>
+                    Mayagöz Karşısı, Talas Bulvarı<br>
+                    38280 Melikgazi/Kayseri</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 Ayyıldız Taksi 7/24. Tüm hakları saklıdır.</p>
+                    <p>FURKAN MORTAŞ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="contact-buttons">
+        <a href="tel:05376019370" class="contact-btn call-btn">
+            <i class="fas fa-phone me-2"></i>
+            Ara: 0537 601 93 70
+        </a>
+        <a href="https://wa.me/905376019370" class="contact-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp me-2"></i>
+            WhatsApp Mesaj
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
