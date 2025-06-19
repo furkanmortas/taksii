@@ -320,148 +320,162 @@
     </div>
 </section>
    <!-- Fare Calculator Section -->
+   
    <section id="calculator" class="py-5" style="background: linear-gradient(135deg, #ffc107 0%, #ffed4e 100%);">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="calculator-card bg-white rounded-4 shadow-lg p-5">
-                    <div class="text-center mb-4">
-                        <h2 class="display-6 fw-bold text-dark">
-                            <i class="fas fa-calculator text-warning me-3"></i>
-                            Taksi Ücreti Hesaplayıcı
-                        </h2>
-                        <p class="lead text-muted">Yolculuğunuzun maliyetini önceden hesaplayın</p>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="calculator-form">
-                                <div class="mb-4">
-                                    <label for="distance" class="form-label fw-bold">
-                                        <i class="fas fa-route text-primary me-2"></i>
-                                        Mesafe (KM)
-                                    </label>
-                                    <div class="input-group input-group-lg">
-                                        <input type="number" 
-                                               class="form-control form-control-lg" 
-                                               id="distance" 
-                                               placeholder="Örn: 5" 
-                                               min="0" 
-                                               step="0.1">
-                                        <span class="input-group-text bg-primary text-white">KM</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="d-grid">
-                                    <button class="btn btn-warning btn-lg fw-bold" onclick="calculateFare()">
-                                        <i class="fas fa-calculator me-2"></i>
-                                        Ücreti Hesapla
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="calculation-result">
-                                <div class="pricing-info bg-light rounded-3 p-4 mb-4">
-                                    <h5 class="fw-bold mb-3">
-                                        <i class="fas fa-info-circle text-info me-2"></i>
-                                        Fiyat Tarifesi
-                                    </h5>
-                                    <div class="pricing-item d-flex justify-content-between mb-2">
-                                        <span><i class="fas fa-flag text-success me-2"></i>Açılış Ücreti:</span>
-                                        <strong class="text-success">50 TL</strong>
-                                    </div>
-                                    <div class="pricing-item d-flex justify-content-between">
-                                        <span><i class="fas fa-road text-primary me-2"></i>KM Başına:</span>
-                                        <strong class="text-primary">50 TL</strong>
-                                    </div>
-                                </div>
-                                
-                                <div id="result-panel" class="result-panel bg-success text-white rounded-3 p-4 text-center" style="display: none;">
-                                    <h4 class="mb-3">
-                                        <i class="fas fa-money-bill-wave me-2"></i>
-                                        Tahmini Ücret
-                                    </h4>
-                                    <div class="fare-breakdown mb-3">
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <span>Açılış Ücreti:</span>
-                                            <span id="opening-fee">50 TL</span>
-                                        </div>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <span>Mesafe Ücreti:</span>
-                                            <span id="distance-fee">0 TL</span>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex justify-content-between">
-                                            <strong>Toplam:</strong>
-                                            <strong id="total-fare" class="fs-3">0 TL</strong>
-                                        </div>
-                                    </div>
-                                    <small class="opacity-75">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Bu hesaplama tahminidir. Gerçek ücret trafik ve bekleme süresine göre değişebilir.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <div class="quick-actions text-center">
-                                <h5 class="mb-3">Hızlı İşlemler</h5>
-                                <div class="d-flex flex-wrap justify-content-center gap-2">
-                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(2)">2 KM</button>
-                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(5)">5 KM</button>
-                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(10)">10 KM</button>
-                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(15)">15 KM</button>
-                                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(20)">20 KM</button>
-                                    <button class="btn btn-outline-danger btn-sm" onclick="clearCalculator()">Temizle</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="calculator-card bg-white rounded-4 shadow-lg p-5">
+            <div class="text-center mb-4">
+              <h2 class="display-6 fw-bold text-dark">
+                <i class="fas fa-calculator text-warning me-3"></i>
+                Taksi Ücreti Hesaplayıcı
+              </h2>
+              <p class="lead text-muted">Yolculuğunuzun maliyetini önceden hesaplayın</p>
             </div>
+  
+            <div class="row">
+              <div class="col-md-6">
+                <!-- Fiyat Tarifesi -->
+                <div class="pricing-info bg-light rounded-3 p-4 mb-4">
+                  <h5 class="fw-bold mb-3">
+                    <i class="fas fa-info-circle text-info me-2"></i>
+                    Fiyat Tarifesi
+                  </h5>
+                  <div class="pricing-item d-flex justify-content-between mb-2">
+                    <span><i class="fas fa-flag text-success me-2"></i>Açılış Ücreti:</span>
+                    <strong class="text-success">50 TL</strong>
+                  </div>
+                  <div class="pricing-item d-flex justify-content-between">
+                    <span><i class="fas fa-road text-primary me-2"></i>KM Başına:</span>
+                    <strong class="text-primary">50 TL</strong>
+                  </div>
+                </div>
+  
+                <div class="calculator-form">
+                  <div class="mb-4">
+                    <label for="distance" class="form-label fw-bold">
+                      <i class="fas fa-route text-primary me-2"></i>
+                      Mesafe (KM)
+                    </label>
+                    <div class="input-group input-group-lg">
+                      <input type="number" 
+                             class="form-control form-control-lg" 
+                             id="distance" 
+                             placeholder="Örn: 5" 
+                             min="0" 
+                             step="0.1">
+                      <span class="input-group-text bg-primary text-white">KM</span>
+                    </div>
+                  </div>
+                  
+                  <div class="d-grid">
+                    <button class="btn btn-warning btn-lg fw-bold" onclick="calculateFare()">
+                      <i class="fas fa-calculator me-2"></i>
+                      Ücreti Hesapla
+                    </button>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Sonuç paneli sağda, başlangıçta görünür -->
+              <div class="col-md-6">
+                <div class="calculation-result">
+                  <div id="result-panel" class="result-panel bg-success text-white rounded-3 p-4 text-center" style="display: block;">
+                    <h4 class="mb-3">
+                      <i class="fas fa-money-bill-wave me-2"></i>
+                      Tahmini Ücret
+                    </h4>
+                    <div class="fare-breakdown mb-3">
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Açılış Ücreti:</span>
+                        <span id="opening-fee">50 TL</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Mesafe Ücreti:</span>
+                        <span id="distance-fee">0 TL</span>
+                      </div>
+                      <hr>
+                      <div class="d-flex justify-content-between">
+                        <strong>Toplam:</strong>
+                        <strong id="total-fare" class="fs-3">0 TL</strong>
+                      </div>
+                    </div>
+                    <small class="opacity-75">
+                      <i class="fas fa-exclamation-circle me-1"></i>
+                      Bu hesaplama tahminidir. Gerçek ücret trafik ve bekleme süresine göre değişebilir.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row mt-5">
+              <div class="col-12">
+                <div class="quick-actions text-center">
+                  <h5 class="mb-3">Hızlı İşlemler</h5>
+                  <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(2)">2 KM</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(5)">5 KM</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(10)">10 KM</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(15)">15 KM</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="setDistance(20)">20 KM</button>
+                    <button class="btn btn-outline-danger btn-sm" onclick="clearCalculator()">Temizle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
         </div>
+      </div>
     </div>
-</section>
-<script>
+  </section>
+  
+  <script>
     const OPENING_FEE = 50; // TL
     const PER_KM_FEE = 50;  // TL
-
+  
+    // Sayfa açılır açılmaz sıfır değerlerle gösterim için:
+    window.onload = function() {
+      updateFareDisplay(0, 0, 0);
+    };
+  
     function calculateFare() {
-        const distanceInput = document.getElementById("distance");
-        const distance = parseFloat(distanceInput.value);
-
-        if (isNaN(distance) || distance < 0) {
-            alert("Lütfen geçerli bir mesafe girin.");
-            return;
-        }
-
-        const distanceFee = distance * PER_KM_FEE;
-        const totalFare = OPENING_FEE + distanceFee;
-
-        document.getElementById("opening-fee").innerText = `${OPENING_FEE} TL`;
-        document.getElementById("distance-fee").innerText = `${distanceFee.toFixed(2)} TL`;
-        document.getElementById("total-fare").innerText = `${totalFare.toFixed(2)} TL`;
-
-        document.getElementById("result-panel").style.display = "block";
+      const distanceInput = document.getElementById("distance");
+      let distance = parseFloat(distanceInput.value);
+  
+      if (isNaN(distance) || distance < 0) {
+        distance = 0;
+      }
+  
+      const distanceFee = distance * PER_KM_FEE;
+      const totalFare = distance > 0 ? OPENING_FEE + distanceFee : 0;
+  
+      updateFareDisplay(OPENING_FEE, distanceFee, totalFare);
     }
-
+  
+    function updateFareDisplay(openingFee, distanceFee, totalFare) {
+      document.getElementById("opening-fee").innerText = `${openingFee} TL`;
+      document.getElementById("distance-fee").innerText = `${distanceFee.toFixed(2)} TL`;
+      document.getElementById("total-fare").innerText = `${totalFare.toFixed(2)} TL`;
+  
+      // Sonuç paneli hep açık
+      document.getElementById("result-panel").style.display = "block";
+    }
+  
     function setDistance(km) {
-        document.getElementById("distance").value = km;
-        calculateFare();
+      document.getElementById("distance").value = km;
+      calculateFare();
     }
-
+  
     function clearCalculator() {
-        document.getElementById("distance").value = "";
-        document.getElementById("result-panel").style.display = "none";
+      document.getElementById("distance").value = "";
+      updateFareDisplay(OPENING_FEE, 0, 0);
     }
-</script>
-
-
+  </script>
+  
+  
 
 <!-- Services Section -->
 <section id="services" class="services-section">
