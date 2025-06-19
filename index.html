@@ -729,7 +729,7 @@
                     // Konum alınamazsa bu mesaj gönderilir
                     const fallbackMessage = "Merhabalar web sitenizden ulaşıyorum taksiye ihtiyacım var. Boşta aracınız var mı?";
                     const whatsappUrl = `https://wa.me/905376019370?text=` + encodeURIComponent(fallbackMessage);
-                    window.open(whatsappUrl, '_blank');
+                    window.location(whatsappUrl, '_blank');
                   }
                 );
               } else {
